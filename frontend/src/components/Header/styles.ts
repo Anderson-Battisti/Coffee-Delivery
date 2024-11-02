@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderDiv = styled.div`
-    background-color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.background};
     height: 80px;
     display: flex;
     width: 100%;

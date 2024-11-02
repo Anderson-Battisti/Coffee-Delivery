@@ -1,8 +1,8 @@
-import { SectionOneText } from "../SectionOneText";
+import { SectionOneText } from "../SectionOne/SectionOneText";
 import { LineOne, LineTwo, SectionOneContainer, SectionOneIconsContainer, SectionOneImage, SectionOneTextContainer } from "./styles";
 import Image from "../../../../assets/homeImage.png";
-import { SectionOneSubtitle } from "../SectionOneSubtitle";
-import { IconModule } from "../IconModule";
+import { SectionOneSubtitle } from "../SectionOne/SectionOneSubtitle";
+import { IconModule } from "../SectionOne/IconModule";
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 
 export function SectionOne()

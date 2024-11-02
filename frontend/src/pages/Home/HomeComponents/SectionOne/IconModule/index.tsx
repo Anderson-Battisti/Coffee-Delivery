@@ -1,5 +1,5 @@
 import { useTheme } from "styled-components";
-import { defaultTheme } from "../../../../styles/theme/DefaultTheme";
+import { defaultTheme } from "../../../../../styles/theme/DefaultTheme";
 import { IconText } from "./IconText/IconText";
 import { Circle, IconModuleContainer } from "./styles";
 
