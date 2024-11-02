@@ -13,6 +13,7 @@ export function SectionTwo()
                         image={coffee.image}
                         name={coffee.name}
                         description={coffee.description}
+                        currency={coffee.currency}
                         price={coffee.price}
                     />
                 ))}
