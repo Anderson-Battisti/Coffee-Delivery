@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { OpenModal} from "./OpenModal";
+import { ModalBlockOne } from "./OpenModal/ModalBlockOne";
+import { ModalBlockTwo } from "./OpenModal/ModalBlockTwo";
+
 import 
 { 
-    AddOrRemoveCoffeeContainer, AmountAndCartContainer, BlockOne, BlocksContainer, BlockTwo, CoffeeAmount, CoffeeCardContainer, 
-    CoffeeDescription, CoffeeImage, CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, 
-    LessCoffee, ModalContentContainer, ModalTitle, MoreCoffee, Price 
+    AddOrRemoveCoffeeContainer, AmountAndCartContainer, BlocksContainer, CoffeeAmount, CoffeeCardContainer, 
+    CoffeeDescription, CoffeeImage, CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, LessCoffee, 
+    ModalContentContainer, ModalTitle, MoreCoffee, Price 
 } from "./styles";
 
 interface CoffeeCardProps 
@@ -20,7 +23,7 @@ export function CoffeeCard({name, description, currency, price, image}: CoffeeCa
 {
     const [amount, setAmount] = useState(0);
     const increaseAmount = () => setAmount(prevAmount => prevAmount + 1);
-    const decreaseAmount = () => setAmount(prevAmount => prevAmount - 1);
+    const decreaseAmount = () => setAmount(prevAmount => prevAmount > 0 ? prevAmount - 1 : prevAmount);
 
     return (
         <CoffeeCardContainer>
@@ -42,12 +45,8 @@ export function CoffeeCard({name, description, currency, price, image}: CoffeeCa
                         <ModalContentContainer>
                             <ModalTitle>Quase lá!</ModalTitle>
                             <BlocksContainer>
-                                <BlockOne>
-        
-                                </BlockOne>
-                                <BlockTwo>
-
-                                </BlockTwo>
+                                <ModalBlockOne />
+                                <ModalBlockTwo />
                             </BlocksContainer>
                         </ModalContentContainer>
                     </OpenModal>
