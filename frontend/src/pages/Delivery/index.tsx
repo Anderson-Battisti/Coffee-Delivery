@@ -4,5 +4,5 @@ export function Delivery()
         <div>
             <h1>Delivery</h1>
         </div>
-    )
+    );
 }

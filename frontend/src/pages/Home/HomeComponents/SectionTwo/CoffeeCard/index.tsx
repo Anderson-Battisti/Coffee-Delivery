@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { AddToCartButton } from "./AddToCartButton";
-import { AddOrRemoveCoffeeContainer, AmountAndCartContainer, CoffeeAmount, CoffeeCardContainer, CoffeeDescription, CoffeeImage, CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, LessCoffee, MoreCoffee, Price } from "./styles";
+import { OpenModal} from "./OpenModal";
+import 
+{ 
+    AddOrRemoveCoffeeContainer, AmountAndCartContainer, BlockOne, BlocksContainer, BlockTwo, CoffeeAmount, CoffeeCardContainer, 
+    CoffeeDescription, CoffeeImage, CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, 
+    LessCoffee, ModalContentContainer, ModalTitle, MoreCoffee, Price 
+} from "./styles";
 
 interface CoffeeCardProps 
 {
@@ -33,7 +38,19 @@ export function CoffeeCard({name, description, currency, price, image}: CoffeeCa
                         <CoffeeAmount>{amount}</CoffeeAmount>
                         <MoreCoffee as="button" onClick={increaseAmount}> + </MoreCoffee>
                     </AddOrRemoveCoffeeContainer>
-                    <AddToCartButton/>
+                    <OpenModal>
+                        <ModalContentContainer>
+                            <ModalTitle>Quase lá!</ModalTitle>
+                            <BlocksContainer>
+                                <BlockOne>
+        
+                                </BlockOne>
+                                <BlockTwo>
+
+                                </BlockTwo>
+                            </BlocksContainer>
+                        </ModalContentContainer>
+                    </OpenModal>
                 </AmountAndCartContainer>
             </CoffeePriceContainer>
         </CoffeeCardContainer>

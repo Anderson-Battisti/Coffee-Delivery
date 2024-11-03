@@ -143,3 +143,31 @@ export const MoreCoffee = styled.button`
         box-shadow: none;
     }
 `;
+
+
+export const ModalContentContainer = styled.div`
+    background-color: ${(props) => props.theme["base-card"]};
+    width: 80%;
+    height: 90%;
+`;
+
+export const ModalTitle = styled.p`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Baloo 2';
+    font-weight: bolder;
+    font-size: 25px;
+`;
+
+export const BlocksContainer = styled.div`
+    
+`;
+
+export const BlockOne = styled.div`
+
+`;
+
+export const BlockTwo = styled.div`
+
+`;
