@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AddToCartButton } from "./AddToCartButton";
 import { AddOrRemoveCoffeeContainer, AmountAndCartContainer, CoffeeAmount, CoffeeCardContainer, CoffeeDescription, CoffeeImage, CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, LessCoffee, MoreCoffee, Price } from "./styles";
 
@@ -12,6 +13,10 @@ interface CoffeeCardProps
 
 export function CoffeeCard({name, description, currency, price, image}: CoffeeCardProps)
 {
+    const [amount, setAmount] = useState(0);
+    const increaseAmount = () => setAmount(prevAmount => prevAmount + 1);
+    const decreaseAmount = () => setAmount(prevAmount => prevAmount - 1);
+
     return (
         <CoffeeCardContainer>
             <CoffeeImage src={image}/>
@@ -24,9 +29,9 @@ export function CoffeeCard({name, description, currency, price, image}: CoffeeCa
                 </CoffeePrice>
                 <AmountAndCartContainer>
                     <AddOrRemoveCoffeeContainer>
-                        <LessCoffee as="button"> - </LessCoffee>
-                        <CoffeeAmount> 0 </CoffeeAmount>
-                        <MoreCoffee as="button"> + </MoreCoffee>
+                        <LessCoffee as="button" onClick={decreaseAmount}> - </LessCoffee>
+                        <CoffeeAmount>{amount}</CoffeeAmount>
+                        <MoreCoffee as="button" onClick={increaseAmount}> + </MoreCoffee>
                     </AddOrRemoveCoffeeContainer>
                     <AddToCartButton/>
                 </AmountAndCartContainer>
