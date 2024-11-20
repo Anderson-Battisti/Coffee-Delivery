@@ -89,67 +89,11 @@ export const AmountAndCartContainer = styled.div`
     gap: 5px;
 `;
 
-export const AddOrRemoveCoffeeContainer = styled.div`
-    display: flex;
-    gap: 10px;
-    background-color: ${(props) => props.theme["base-button"]};
-    height: 40px;
-    border-radius: 5px;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-`;
-
-export const LessCoffee = styled.button`
-    background-color: transparent;
-    color: ${(props) => props.theme["purple-dark"]};
-    border: 0;
-    font-size: 1.5rem;
-    font-family: 'Baloo 2';
-    cursor: pointer;
-
-    &:hover
-    {
-        transform: scale(1.3);
-    }
-
-    &:focus, &:active
-    {
-        outline: none;
-        box-shadow: none;
-    }
-`;
-
-export const CoffeeAmount = styled.p`
-
-`;
-
-export const MoreCoffee = styled.button`
-    background-color: transparent;
-    color: ${(props) => props.theme["purple-dark"]};
-    border: 0;
-    font-size: 1.5rem;
-    font-family: 'Baloo 2';
-    cursor: pointer;
-
-    &:hover
-    {
-        transform: scale(1.3);
-    }
-
-    &:focus, &:active
-    {
-        outline: none;
-        box-shadow: none;
-    }
-`;
-
-
 export const ModalContentContainer = styled.div`
     background-color: ${(props) => props.theme["base-card"]};
     border-radius: 10px;
-    width: 80%;
-    height: 90%;
+    width: 90%;
+    height: 95%;
 `;
 
 export const ModalTitle = styled.p`
@@ -164,7 +108,7 @@ export const ModalTitle = styled.p`
 
 export const BlocksContainer = styled.div`
     display: flex;
-    gap: 50px;
+    gap: 25px;
     justify-content: center;
 `;
 

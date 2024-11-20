@@ -6,8 +6,8 @@ export const OpenModalContainer = styled.button`
     border: none;
     border-radius: 5px;
     padding: 5px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
 
     &:active, &:hover, &:focus

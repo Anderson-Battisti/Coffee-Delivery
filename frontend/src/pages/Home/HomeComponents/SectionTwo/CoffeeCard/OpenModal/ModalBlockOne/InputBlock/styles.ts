@@ -9,7 +9,7 @@ export const InputContainer = styled.div`
 `;
 
 export const StyledInput = styled.input`
-    padding: 10px 12px;
+    padding: 7px 9px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid;

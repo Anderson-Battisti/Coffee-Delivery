@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const AddressContainer = styled.div`
     display: flex;
-    padding: 40px;
+    padding: 20px;
     gap: 5px;
 `;
 

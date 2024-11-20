@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { AddAndRemoveCoffee } from "./AddAndRemoveCoffee";
 import { OpenModal} from "./OpenModal";
 import { ModalBlockOne } from "./OpenModal/ModalBlockOne";
 import { ModalBlockTwo } from "./OpenModal/ModalBlockTwo";
 
 import 
 { 
-    AddOrRemoveCoffeeContainer, AmountAndCartContainer, BlocksContainer, CoffeeAmount, CoffeeCardContainer, 
-    CoffeeDescription, CoffeeImage, CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, LessCoffee, 
-    ModalContentContainer, ModalTitle, MoreCoffee, Price 
-} from "./styles";
+    AmountAndCartContainer, BlocksContainer, CoffeeCardContainer, CoffeeDescription, CoffeeImage, 
+    CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, ModalContentContainer, ModalTitle, Price 
+}   from "./styles";
 
 interface CoffeeCardProps 
 {
@@ -21,10 +20,6 @@ interface CoffeeCardProps
 
 export function CoffeeCard({name, description, currency, price, image}: CoffeeCardProps)
 {
-    const [amount, setAmount] = useState(0);
-    const increaseAmount = () => setAmount(prevAmount => prevAmount + 1);
-    const decreaseAmount = () => setAmount(prevAmount => prevAmount > 0 ? prevAmount - 1 : prevAmount);
-
     return (
         <CoffeeCardContainer>
             <CoffeeImage src={image}/>
@@ -36,17 +31,13 @@ export function CoffeeCard({name, description, currency, price, image}: CoffeeCa
                     <Price>{price}</Price>
                 </CoffeePrice>
                 <AmountAndCartContainer>
-                    <AddOrRemoveCoffeeContainer>
-                        <LessCoffee as="button" onClick={decreaseAmount}> - </LessCoffee>
-                        <CoffeeAmount>{amount}</CoffeeAmount>
-                        <MoreCoffee as="button" onClick={increaseAmount}> + </MoreCoffee>
-                    </AddOrRemoveCoffeeContainer>
-                    <OpenModal>
+                    <AddAndRemoveCoffee />
+                    <OpenModal >
                         <ModalContentContainer>
                             <ModalTitle>Quase lá!</ModalTitle>
                             <BlocksContainer>
                                 <ModalBlockOne />
-                                <ModalBlockTwo />
+                                <ModalBlockTwo name={name} description={description} currency={currency} price={price} image={image} />
                             </BlocksContainer>
                         </ModalContentContainer>
                     </OpenModal>
