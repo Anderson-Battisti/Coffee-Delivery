@@ -4,11 +4,13 @@ import styled from "styled-components";
 interface CircleProps 
 {
     bgColor: string;
+    width: string;
+    height: string;
 }
 
 export const Circle = styled.div<CircleProps>`
-    width: 50px;
-    height: 50px;
+    width: ${({width}) => width};
+    height: ${({height}) => height};
     border-radius: 50%;
     background-color: ${({ bgColor }) => bgColor};
     display: flex;

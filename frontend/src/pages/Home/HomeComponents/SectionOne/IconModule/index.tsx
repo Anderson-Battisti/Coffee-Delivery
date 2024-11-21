@@ -16,7 +16,7 @@ export function IconModule({bgColor, iconColor, text, icon: Icon}: IconModulePro
     const theme = useTheme();
     return (
         <IconModuleContainer>
-            <Circle bgColor={theme[bgColor]}>
+            <Circle bgColor={theme[bgColor]} width="50px" height="50px">
                 <Icon color={theme[iconColor]} size={25} />
             </Circle>
             <IconText text={text}/>
