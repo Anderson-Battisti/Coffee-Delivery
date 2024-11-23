@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ModalContainer, OpenModalContainer, ShoppingCartSimpleStyled, XStyled } from "./styles";
+import { ModalContainer, XStyled } from "./styles";
+import { CartButtonContainer, ShoppingCartStyled } from "../../../../../../components/headerbuttons/styles";
 
 interface OpenModalProps
 {
@@ -12,9 +13,9 @@ export function OpenModal({children}: OpenModalProps)
 
     return(
         <>
-            <OpenModalContainer as="button" onClick={() => setIsOpen(!isOpen)}>
-                <ShoppingCartSimpleStyled weight="fill" size={23}/>
-            </OpenModalContainer>
+            <CartButtonContainer as="button" onClick={() => setIsOpen(!isOpen)}>
+                <ShoppingCartStyled/>
+            </CartButtonContainer>
 
             {isOpen && (
                 <ModalContainer>

@@ -1,5 +1,9 @@
 import Logo from "../../assets/Logo.png";
-import { CartButton, LocationHeaderButton } from "../headerbuttons";
+import { OpenModal } from "../../pages/Home/HomeComponents/SectionTwo/CoffeeCard/OpenModal";
+import { ModalBlockOne } from "../../pages/Home/HomeComponents/SectionTwo/CoffeeCard/OpenModal/ModalBlockOne";
+import { ModalBlockTwo } from "../../pages/Home/HomeComponents/SectionTwo/CoffeeCard/OpenModal/ModalBlockTwo";
+import { BlocksContainer, ModalContentContainer, ModalTitle } from "../../pages/Home/HomeComponents/SectionTwo/CoffeeCard/styles";
+import { LocationHeaderButton } from "../headerbuttons";
 import { HeaderButtonDiv, HeaderContainer, HeaderDiv, HeaderLogo, StyledLink } from "./styles";
 
 export function Header()
@@ -13,7 +17,15 @@ export function Header()
                 </StyledLink>
                 <HeaderButtonDiv>
                     <LocationHeaderButton text={"Porto Alegre, RS"} />
-                    <CartButton/>                      
+                    <OpenModal >
+                        <ModalContentContainer>
+                            <ModalTitle>Quase lá!</ModalTitle>
+                            <BlocksContainer>
+                                <ModalBlockOne />
+                                <ModalBlockTwo name={"name"} description={"description"} currency={"currency"} price={"price"} image={"image"} />
+                            </BlocksContainer>
+                        </ModalContentContainer>
+                    </OpenModal>                      
                 </HeaderButtonDiv>
             </HeaderContainer>
         </HeaderDiv>   

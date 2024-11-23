@@ -1,12 +1,10 @@
 import { AddAndRemoveCoffee } from "./AddAndRemoveCoffee";
-import { OpenModal} from "./OpenModal";
-import { ModalBlockOne } from "./OpenModal/ModalBlockOne";
-import { ModalBlockTwo } from "./OpenModal/ModalBlockTwo";
+import { OpenModalContainer, ShoppingCartSimpleStyled } from "./OpenModal/styles";
 
 import 
 { 
-    AmountAndCartContainer, BlocksContainer, CoffeeCardContainer, CoffeeDescription, CoffeeImage, 
-    CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, ModalContentContainer, ModalTitle, Price 
+    AmountAndCartContainer, CoffeeCardContainer, CoffeeDescription, CoffeeImage, 
+    CoffeeName, CoffeePrice, CoffeePriceContainer, Currency, Price 
 }   from "./styles";
 
 interface CoffeeCardProps 
@@ -32,15 +30,9 @@ export function CoffeeCard({name, description, currency, price, image}: CoffeeCa
                 </CoffeePrice>
                 <AmountAndCartContainer>
                     <AddAndRemoveCoffee />
-                    <OpenModal >
-                        <ModalContentContainer>
-                            <ModalTitle>Quase lá!</ModalTitle>
-                            <BlocksContainer>
-                                <ModalBlockOne />
-                                <ModalBlockTwo name={name} description={description} currency={currency} price={price} image={image} />
-                            </BlocksContainer>
-                        </ModalContentContainer>
-                    </OpenModal>
+                    <OpenModalContainer >
+                        <ShoppingCartSimpleStyled weight="fill" size={23}/>
+                    </OpenModalContainer>
                 </AmountAndCartContainer>
             </CoffeePriceContainer>
         </CoffeeCardContainer>
