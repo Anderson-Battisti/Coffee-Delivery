@@ -3,13 +3,17 @@ import
 { DeliveryContainer, DeliveryText, DeliveryValue, OrderInformationContainer, TotalOfItensContainer, 
   TotalOfItensText, TotalOfItensValue, TotalValue, TotalValueContainer, TotalValueText, ConfirmOrderButton 
 } from "./styles";
+import { useContext } from "react";
+import { ModalContext } from "../../../../../Context/ModalContext";
 
 export function OrderInformation()
 {
     const navigate = useNavigate();             //This const provides access to the function useNavigate
+    const modalContext = useContext(ModalContext);
 
     const handleNavigation = () =>                    
     {
+        modalContext.openAndCloseModal();
         navigate('/delivery')
     }
 

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { ModalContainer, XStyled } from "./styles";
 import { CartButtonContainer, ShoppingCartStyled } from "../../headerbuttons/styles";
+import { ModalContext } from "../../../Context/ModalContext";
 
 interface OpenModalProps
 {
@@ -9,17 +10,22 @@ interface OpenModalProps
 
 export function OpenModal({children}: OpenModalProps)
 {
-    const [isOpen, setIsOpen] = useState(false);
+    const modalContext = useContext(ModalContext);
+
+    function handleOpenAndCloseModal()
+    {
+        modalContext.openAndCloseModal();
+    }
 
     return(
         <>
-            <CartButtonContainer as="button" onClick={() => setIsOpen(!isOpen)}>
+            <CartButtonContainer as="button" onClick={handleOpenAndCloseModal}>
                 <ShoppingCartStyled/>
             </CartButtonContainer>
 
-            {isOpen && (
+            {modalContext.isOpen && (
                 <ModalContainer>
-                    <XStyled onClick={() => setIsOpen(!isOpen)} size={22}/>
+                    <XStyled onClick={handleOpenAndCloseModal} size={22}/>
                     {children}
                 </ModalContainer>
             )}

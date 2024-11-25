@@ -5,6 +5,7 @@ import { defaultTheme } from "./styles/theme/DefaultTheme";
 import { GlobalStyle } from "./styles/global";
 import { CoffeeProvider } from "./Context/CoffeeContext";
 import { AmountProvider } from "./Context/AmountContext";
+import { ModalProvider } from "./Context/ModalContext";
 
 function App() 
 {
@@ -14,7 +15,9 @@ function App()
         <BrowserRouter>
           <AmountProvider>
             <CoffeeProvider>
-              <Router />
+              <ModalProvider>
+                <Router />
+              </ModalProvider>
             </CoffeeProvider>
           </AmountProvider>
         </BrowserRouter>
