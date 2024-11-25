@@ -15,6 +15,7 @@ export function SectionTwo()
                         description={coffee.description}
                         currency={coffee.currency}
                         price={coffee.price}
+                        id={coffee.id}
                     />
                 ))}
             </CoffeeCardsContainer>

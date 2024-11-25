@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ModalContainer, XStyled } from "./styles";
-import { CartButtonContainer, ShoppingCartStyled } from "../../../../../../components/headerbuttons/styles";
+import { CartButtonContainer, ShoppingCartStyled } from "../../headerbuttons/styles";
 
 interface OpenModalProps
 {

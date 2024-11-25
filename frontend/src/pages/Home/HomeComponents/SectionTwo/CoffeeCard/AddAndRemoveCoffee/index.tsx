@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { AddOrRemoveCoffeeContainer, CoffeeAmount, LessCoffee, MoreCoffee } from "./styles";
+import { AmountContext } from "../../../../../../Context/AmountContext";
 
-export function AddAndRemoveCoffee()
+interface AddAndRemoveCoffeeProps
 {
-    const [amount, setAmount] = useState(0);
-    const increaseAmount = () => setAmount(amount => amount + 1);
-    const decreaseAmount = () => setAmount(amount => amount > 0 ? amount - 1 : amount);
-    
+    id: number;
+}
+
+export function AddAndRemoveCoffee({id}: AddAndRemoveCoffeeProps)
+{
+    const amountContext = useContext(AmountContext);
+
     return (
         <AddOrRemoveCoffeeContainer>
-            <LessCoffee as="button" onClick={decreaseAmount}> - </LessCoffee>
-            <CoffeeAmount>{amount}</CoffeeAmount>
-            <MoreCoffee as="button" onClick={increaseAmount}> + </MoreCoffee>
+            <LessCoffee as="button" onClick={() => amountContext.decreaseAmount(id)}> - </LessCoffee>
+            <CoffeeAmount>{amountContext.coffeeAmount[id]}</CoffeeAmount>
+            <MoreCoffee as="button" onClick={() => amountContext.increaseAmount(id)}> + </MoreCoffee>
         </AddOrRemoveCoffeeContainer>
     );
 }

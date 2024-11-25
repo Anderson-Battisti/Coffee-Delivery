@@ -1,7 +1,7 @@
 import { ShoppingCartSimple, X } from "@phosphor-icons/react";
 import styled from "styled-components";
 
-export const OpenModalContainer = styled.button`
+export const AddToCartButton = styled.button`
     background-color: ${(props) => props.theme["purple-dark"]};
     border: none;
     border-radius: 5px;
