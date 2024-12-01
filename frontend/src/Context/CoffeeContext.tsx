@@ -29,6 +29,7 @@ interface CoffeeContextInterface
     saveAmount: (amountToAdd: number) => void;
     saveCartCoffees: (newCoffee: CoffeeInterface) => void;
     removeCoffeeFromTheCart: (id: number) => void;
+    clearCart: () => void;
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextInterface);
@@ -129,6 +130,11 @@ export const CoffeeProvider: FunctionComponent<CoffeeProvider> = ({children}) =>
         });
     }
 
+    function clearCart()
+    {
+        setCartCoffees([]);
+    }
+
     return (
         <CoffeeContext.Provider value={
             {   
@@ -140,7 +146,8 @@ export const CoffeeProvider: FunctionComponent<CoffeeProvider> = ({children}) =>
                 decreaseCartCoffeeAmount: decreaseCartCoffeeAmount, 
                 getCoffeeAmountById: getCoffeeAmountById, 
                 saveCartCoffees: saveCartCoffees,
-                removeCoffeeFromTheCart: removeCoffeeFromTheCart 
+                removeCoffeeFromTheCart: removeCoffeeFromTheCart,
+                clearCart: clearCart 
 
             } as CoffeeContextInterface}>     
             {children}

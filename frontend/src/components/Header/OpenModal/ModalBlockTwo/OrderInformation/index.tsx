@@ -18,6 +18,7 @@ export function OrderInformation()
     {
         modalContext.openAndCloseModal();
         navigate('/delivery')
+        coffeeContext.clearCart();        //Clear cart after navigation to delivery page
     }
 
     const itemsTotalPrice = () =>
