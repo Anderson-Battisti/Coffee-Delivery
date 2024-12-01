@@ -1,8 +1,9 @@
 
 import { AddAndRemoveContainer, CartCardCoffeeName, CartCardContainer, CartCardImage, CoffeInformation, CoffeInformationContainer, RemoveCoffeeButtonContainer, RemoveCoffeeLabel, StyledTrash } from "./styles";
 import { StyledHr } from "../styles";
-import { CoffeeInterface } from "../../../../../Context/CoffeeContext";
+import { CoffeeContext, CoffeeInterface } from "../../../../../Context/CoffeeContext";
 import { AddAndRemoveCoffee } from "./CartAddAndRemoveCoffee";
+import { useContext } from "react";
 
 interface CartCardsProps
 {
@@ -11,6 +12,13 @@ interface CartCardsProps
 
 export function CartCards({coffee}: CartCardsProps)
 {
+    const coffeeContext = useContext(CoffeeContext);
+    
+    function handleRemoveCoffee(id: number)
+    {
+        coffeeContext.removeCoffeeFromTheCart(id);
+    }
+
     return (
         <>
             <CartCardContainer>
@@ -20,7 +28,7 @@ export function CartCards({coffee}: CartCardsProps)
                         <CartCardCoffeeName>{coffee.name}</CartCardCoffeeName>
                         <AddAndRemoveContainer>
                             <AddAndRemoveCoffee id={coffee.id} />  
-                            <RemoveCoffeeButtonContainer as="button">
+                            <RemoveCoffeeButtonContainer as="button" onClick={() => handleRemoveCoffee(coffee.id)}>
                                 <StyledTrash />
                                 <RemoveCoffeeLabel>REMOVER</RemoveCoffeeLabel>
                             </RemoveCoffeeButtonContainer>

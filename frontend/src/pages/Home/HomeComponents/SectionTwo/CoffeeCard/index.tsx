@@ -35,7 +35,7 @@ export function CoffeeCard({name, description, currency, price, image, id}: Coff
             price: price, 
             image: image,
             id: id,
-            amount: amountContext.coffeeAmount[id]                       //amount tenho que buscar no context de alguma forma
+            amount: amountContext.coffeeAmount[id]
         };
 
         coffeeContext.saveCoffees(newCoffee);

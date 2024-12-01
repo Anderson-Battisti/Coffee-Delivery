@@ -27,6 +27,7 @@ interface CoffeeContextInterface
     getCoffeeAmountById: (id: number) => number;
     saveAmount: (amountToAdd: number) => void;
     saveCartCoffees: (newCoffee: CoffeeInterface) => void;
+    removeCoffeeFromTheCart: (id: number) => void;
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextInterface);
@@ -91,33 +92,54 @@ export const CoffeeProvider: FunctionComponent<CoffeeProvider> = ({children}) =>
     {
         setCartCoffees((prevCoffees) =>
         {
-            if (cartCoffees.length <= 0)
+            //if the cart is empty adds the first coffee.
+            if (cartCoffees.length <= 0)  
             {
                 return [newCoffee];
             }
             else
             {
-                let thereIsNewCoffee = true;
-                const coffees = prevCoffees.map((currentCoffee) =>
+                let isANewCoffee = true; //assumes the coffee is a new one
+                
+                const coffees = prevCoffees.map((currentCoffee) => 
                 {
                     if (currentCoffee.id === newCoffee.id)
                     {
-                        thereIsNewCoffee = false;
-                        return {...currentCoffee, amount: (currentCoffee.amount + newCoffee.amount)};
+                        isANewCoffee = false;
+                        return {...currentCoffee, amount: (currentCoffee.amount + newCoffee.amount)}; //updates the amount of the existing coffee
                     }
                     else
                     {
-                        return currentCoffee; 
+                        return currentCoffee; //doesn't change the previous coffee
                     }
                 });
-
-                return thereIsNewCoffee ? [...coffees, newCoffee] : coffees;
+                //if the coffee is new, returns the previous coffees + the new one, else, just returns the previous list with the updated amounts
+                return isANewCoffee ? [...coffees, newCoffee] : coffees;  
             }
         });
     }
 
+    function removeCoffeeFromTheCart(id: number)
+    {   
+        setCartCoffees((prevCoffees) =>
+        {
+            return prevCoffees.filter((currentCoffee) => currentCoffee.id !== id);
+        });
+    }
+
     return (
-        <CoffeeContext.Provider value={{coffees: coffees, cartCoffees: cartCoffees, saveCoffees: saveCoffees, increaseCartCoffeeAmount: increaseCartCoffeeAmount, decreaseCartCoffeeAmount: decreaseCartCoffeeAmount, getCoffeeAmountById: getCoffeeAmountById, saveCartCoffees: saveCartCoffees} as CoffeeContextInterface}> 
+        <CoffeeContext.Provider value={
+            {   
+                coffees: coffees, 
+                cartCoffees: cartCoffees, 
+                saveCoffees: saveCoffees, 
+                increaseCartCoffeeAmount: increaseCartCoffeeAmount, 
+                decreaseCartCoffeeAmount: decreaseCartCoffeeAmount, 
+                getCoffeeAmountById: getCoffeeAmountById, 
+                saveCartCoffees: saveCartCoffees,
+                removeCoffeeFromTheCart: removeCoffeeFromTheCart 
+
+            } as CoffeeContextInterface}>     
             {children}
         </CoffeeContext.Provider> //here, value returns variables and functions to be used in the global application
     );
