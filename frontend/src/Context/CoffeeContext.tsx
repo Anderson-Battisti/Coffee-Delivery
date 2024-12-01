@@ -97,17 +97,21 @@ export const CoffeeProvider: FunctionComponent<CoffeeProvider> = ({children}) =>
             }
             else
             {
-                return prevCoffees.map((currentCoffee) =>
+                let thereIsNewCoffee = true;
+                const coffees = prevCoffees.map((currentCoffee) =>
                 {
                     if (currentCoffee.id === newCoffee.id)
                     {
+                        thereIsNewCoffee = false;
                         return {...currentCoffee, amount: (currentCoffee.amount + newCoffee.amount)};
                     }
                     else
                     {
-                        return currentCoffee;
+                        return currentCoffee; 
                     }
                 });
+
+                return thereIsNewCoffee ? [...coffees, newCoffee] : coffees;
             }
         });
     }

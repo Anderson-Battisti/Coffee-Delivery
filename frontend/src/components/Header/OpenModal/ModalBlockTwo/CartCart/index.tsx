@@ -28,7 +28,7 @@ export function CartCards({coffee}: CartCardsProps)
                     </CoffeInformation>  
                 </CoffeInformationContainer>
             </CartCardContainer>
-        <StyledHr />
+            <StyledHr />
         </>
     );
 }

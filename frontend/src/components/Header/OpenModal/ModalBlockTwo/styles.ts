@@ -20,6 +20,11 @@ export const BlockTwoBox = styled.div`
     border-bottom-left-radius: 50px;
 `;
 
+export const CoffeeBlock = styled.div`
+    overflow-y: auto;
+    max-height: 280px;
+`;
+
 export const StyledHr = styled.hr`
     border-color: ${(props) => props.theme.background};
     margin-bottom: 20px;

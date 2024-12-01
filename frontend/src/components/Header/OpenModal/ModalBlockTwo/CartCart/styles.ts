@@ -5,6 +5,8 @@ export const CartCardContainer = styled.div`
     display: flex;
     gap: 20px;
     padding: 30px;
+    overflow-y: auto;
+    max-height: 200px;
 `;
 
 export const CartCardImage = styled.img`
