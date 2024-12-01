@@ -15,7 +15,7 @@ interface CoffeeCardProps
     name: string;
     description: string;
     currency: string;
-    price: string;
+    price: number;
     image: string;
     id: number;
 }
@@ -51,7 +51,7 @@ export function CoffeeCard({name, description, currency, price, image, id}: Coff
             <CoffeePriceContainer>
                 <CoffeePrice>
                     <Currency>{currency}</Currency>
-                    <Price>{price}</Price>
+                    <Price>{(price * amountContext.coffeeAmount[id]).toFixed(2)}</Price>
                 </CoffeePrice>
                 <AmountAndCartContainer>
                     <AddAndRemoveCoffee id={id} />

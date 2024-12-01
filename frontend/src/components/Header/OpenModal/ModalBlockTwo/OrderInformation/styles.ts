@@ -29,7 +29,7 @@ export const DeliveryText = styled.p`
 
 `;
 
-export const DeliveryValue = styled.p`
+export const DeliveryPrice = styled.p`
 
 `;
 

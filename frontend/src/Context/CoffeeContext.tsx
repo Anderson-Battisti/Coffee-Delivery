@@ -6,7 +6,7 @@ export interface CoffeeInterface
     name: string;
     description: string;
     currency: string;
-    price: string;
+    price: number;
     id: number;   
     amount: number;
 }
@@ -18,6 +18,7 @@ interface CoffeeProvider
 
 interface CoffeeContextInterface
 {
+    deliveryPrice: number
     coffees: CoffeeInterface[];
     coffeeAmount: number;
     cartCoffees: CoffeeInterface[];
@@ -36,6 +37,7 @@ export const CoffeeProvider: FunctionComponent<CoffeeProvider> = ({children}) =>
 {
     const [coffees, setCoffees] = useState<CoffeeInterface[]>([]);
     const [cartCoffees, setCartCoffees] = useState<CoffeeInterface[]>([]);
+    const deliveryPrice = 3.5;
 
     function saveCoffees(newCoffee: CoffeeInterface)
     {
@@ -130,6 +132,7 @@ export const CoffeeProvider: FunctionComponent<CoffeeProvider> = ({children}) =>
     return (
         <CoffeeContext.Provider value={
             {   
+                deliveryPrice: deliveryPrice,
                 coffees: coffees, 
                 cartCoffees: cartCoffees, 
                 saveCoffees: saveCoffees, 
