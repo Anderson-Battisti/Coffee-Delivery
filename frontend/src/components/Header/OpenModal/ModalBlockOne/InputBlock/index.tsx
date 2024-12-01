@@ -4,16 +4,16 @@ export function InputBlock()
 {
     return (
         <InputContainer>
-            <CepInput placeholder="CEP"/>
-            <StreetNameInput placeholder="Rua"/>
+            <CepInput placeholder="CEP" id="cep"/>
+            <StreetNameInput placeholder="Rua" id="streetName"/>
             <NumberComplementContainer>
-                <PropertyNumber placeholder="Número"/>
-                <Complement placeholder="Complemento (opcional)"/>
+                <PropertyNumber placeholder="Número" id="propertyNumber"/>
+                <Complement placeholder="Complemento (opcional)" id="complement"/>
             </NumberComplementContainer>
             <NeighborhoodCityStateContainer>
-                <Neighborhood placeholder="Bairro"/>
-                <City placeholder="Cidade"/>
-                <UF placeholder="UF"/>
+                <Neighborhood placeholder="Bairro" id="neighborhood"/>
+                <City placeholder="Cidade" id="city"/>
+                <UF placeholder="UF" id="state"/>
             </NeighborhoodCityStateContainer>
         </InputContainer>
     );
