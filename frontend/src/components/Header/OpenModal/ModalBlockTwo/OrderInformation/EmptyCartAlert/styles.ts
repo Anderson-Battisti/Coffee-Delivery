@@ -1,3 +1,4 @@
+import { Warning } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 export const EmptyCartAlertContainer = styled.div`
@@ -14,7 +15,55 @@ export const EmptyCartAlertContainer = styled.div`
 
 export const AlertCardContainer = styled.div`
     display: flex;
-    width: 20%;
-    height: 20%;
-    background-color: black;
+    flex-direction: column;
+    width: 35%;
+    height: 35%;
+    background-color: ${(props) => props.theme.yellow};
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 15px;
+`;
+
+export const StyledWarning = styled(Warning)`
+    color: black;
+`;
+
+export const EmptyCartAlertButton = styled.button`
+    color: black;
+    background-color: ${(props) => props.theme["yellow-light"]};
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.05s;
+    &:hover
+    {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    &:active&:focus
+    {
+        border: none;
+        box-shadow: none;
+    }
+`;
+
+export const EmptyCartAlertTitle = styled.p`
+    font-size: 20px;
+`;
+
+export const EmptyCartAlertText = styled.p`
+    text-align: center;
+`;
+
+export const EmptyCartAlertTextContainer = styled.div`
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Baloo 2';
+    color: black;
 `;

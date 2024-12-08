@@ -1,5 +1,4 @@
-import { AlertCardContainer, EmptyCartAlertContainer } from "./styles";
-import { XStyled } from "../../../styles";
+import { AlertCardContainer, EmptyCartAlertButton, EmptyCartAlertContainer, EmptyCartAlertText, EmptyCartAlertTextContainer, EmptyCartAlertTitle, StyledWarning } from "./styles";
 import { useContext } from "react";
 import { ModalContext } from "../../../../../../Context/ModalContext";
 
@@ -10,9 +9,13 @@ export function EmptyCartAlert()
     return(
         (modalContext.emptyCartCoffeeAlertStatus === true) && (
             <EmptyCartAlertContainer>
-                <XStyled onClick={() => modalContext.openAndCloseEmptyCartAlert()} size={22}/>
                 <AlertCardContainer>
-                    <p>This is an Alert</p>
+                    <StyledWarning size={32} weight="fill"/>
+                    <EmptyCartAlertTextContainer>
+                        <EmptyCartAlertTitle>Atenção!</EmptyCartAlertTitle>
+                        <EmptyCartAlertText>Você não pode confirmar o pedido sem adicionar itens ao carrinho.</EmptyCartAlertText>
+                    </EmptyCartAlertTextContainer>
+                    <EmptyCartAlertButton onClick={() => {modalContext.openAndCloseEmptyCartAlert(); modalContext.openAndCloseModal();}}>OK</EmptyCartAlertButton>
                 </AlertCardContainer>
             </EmptyCartAlertContainer>
         )
