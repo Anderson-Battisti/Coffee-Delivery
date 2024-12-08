@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ModalContext } from "../../../../../Context/ModalContext";
+import { CoffeeContext } from "../../../../../Context/CoffeeContext";
+
 import 
 { DeliveryContainer, DeliveryText, OrderInformationContainer, TotalOfItensContainer, 
   TotalOfItensText, TotalOfItensValue, TotalValue, TotalValueContainer, TotalValueText, ConfirmOrderButton, 
   DeliveryPrice
 } from "./styles";
-import { useContext } from "react";
-import { ModalContext } from "../../../../../Context/ModalContext";
-import { CoffeeContext } from "../../../../../Context/CoffeeContext";
-
 export function OrderInformation()
 {
     const navigate = useNavigate();             //This const provides access to the function useNavigate
@@ -16,9 +16,16 @@ export function OrderInformation()
 
     const handleNavigation = () =>                    
     {
-        modalContext.openAndCloseModal();
-        navigate('/delivery')
-        coffeeContext.clearCart();        //Clear cart after navigation to delivery page
+        if (itemsTotalPrice() > 0)
+        {
+            modalContext.openAndCloseModal();
+            navigate('/delivery')
+            coffeeContext.clearCart();
+        }
+        else
+        {
+            modalContext.openAndCloseEmptyCartAlert();
+        }
     }
 
     const itemsTotalPrice = () =>

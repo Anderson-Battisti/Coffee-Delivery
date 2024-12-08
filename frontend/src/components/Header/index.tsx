@@ -5,6 +5,7 @@ import { ModalBlockOne } from "./OpenModal/ModalBlockOne";
 import { ModalBlockTwo } from "./OpenModal/ModalBlockTwo";
 import { HeaderDiv, HeaderContainer, StyledLink, HeaderLogo, HeaderButtonDiv } from "./styles";
 import Logo from "../../assets/Logo.png";
+import { EmptyCartAlert } from "./OpenModal/ModalBlockTwo/OrderInformation/EmptyCartAlert";
 
 export function Header()
 {
@@ -25,6 +26,7 @@ export function Header()
                                 <ModalBlockTwo />
                             </BlocksContainer>
                         </ModalContentContainer>
+                        <EmptyCartAlert />
                     </OpenModal>                      
                 </HeaderButtonDiv>
             </HeaderContainer>

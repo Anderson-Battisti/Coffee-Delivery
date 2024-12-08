@@ -28,6 +28,7 @@ export const ModalProvider: FunctionComponent<ModalProvider> = ({children}) =>
     function openAndCloseEmptyCartAlert()
     {
         setEmptyCartCoffeeAlertStatus(!emptyCartCoffeeAlertStatus);
+        console.log(emptyCartCoffeeAlertStatus);
     }
 
     return (
