@@ -37,10 +37,13 @@ export function CoffeeCard({name, description, currency, price, image, id}: Coff
             id: id,
             amount: amountContext.coffeeAmount[id]
         };
-
-        coffeeContext.saveCoffees(newCoffee);
-        coffeeContext.saveCartCoffees(newCoffee);
-        amountContext.resetAmount(id);
+        
+        if (amountContext.coffeeAmount[id] > 0)
+        {
+            coffeeContext.saveCoffees(newCoffee);
+            coffeeContext.saveCartCoffees(newCoffee);
+            amountContext.resetAmount(id);
+        }
     };
     
     return (
